@@ -3,7 +3,7 @@ export default async function(req, res, next){
         'TYPE : %s URL : %s  params : %s',
         req.method,
         req.originalUrl,
-        JSON.stringify(req.params)
+        JSON.stringify(req.body)
     );
 
     return next();

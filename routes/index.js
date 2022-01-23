@@ -18,7 +18,8 @@ export default async function(app) {
         const api = file.substring(__dirname.length, file.length - JS_EXT.length);
         console.log(api.replace(/\\/g, '/'));
         const module = await import(url.pathToFileURL(file));
-        app.use(api.replace(/\\/g, '/'), module.default);
+        // app.post(api.replace(/\\/g, '/'), module.default);
+        app.use(api.replace(/\\/g, '/'), module.default);   // for test 
     }
 }
 

@@ -22,7 +22,9 @@
   },
   "homepage": "https://github.com/paperdev/TestW#readme",
   "dependencies": {
+    "body-parser": "^1.19.1",
     "express": "^4.17.2",
+    "lodash": "^4.17.21",
     "mysql2": "^2.3.3",
     "sequelize": "^6.13.0"
   }
