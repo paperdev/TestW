@@ -24,11 +24,13 @@ const Comment = sequelize.define(
         },
         // Table Post id
         post_ref_id: {
-            type: DataTypes.INTEGER.UNSIGNED
+            type: DataTypes.INTEGER.UNSIGNED,
+            defaultValue: 0
         },
         // Table Comment id
         comment_ref_id: {
-            type: DataTypes.INTEGER.UNSIGNED
+            type: DataTypes.INTEGER.UNSIGNED,
+            defaultValue: 0
         }
     },
     {
@@ -45,10 +47,6 @@ const Comment = sequelize.define(
     }
 );
 
-Comment.sync(
-    {
-        force: true
-    }
-);
+Comment.sync();
 
 export default Comment;

@@ -19,6 +19,9 @@ const OPTIONS = {
         max: 5,
         idle: 30000,
         acquire: 60000,
+    },
+    query:{
+        raw: true
     }
 }
 

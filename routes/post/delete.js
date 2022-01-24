@@ -3,11 +3,30 @@ import _ from 'lodash';
 
 export default async function(req, res, next) {
     try {
-        if (_.isEmpty(req.body)) {
-            return next(error);
+        const id = req.body.id;
+        const password = req.body.password;
+
+        if (!id || !password) {
+            return next('parameter error.');
         }
 
-        const id = req.body.id;
+        const result_post = await post.findOne(
+            {
+                where: {
+                    id: id
+                },
+                raw: false
+            }
+        );
+
+        if (!result_post) {
+            return next('post not exist.');
+        }
+
+        // password check
+        if (result_post.password() !== post.encryptPassword(password, result_post.salt())) {
+            return next('password error.');
+        }
 
         await post.destroy({
             where: {
